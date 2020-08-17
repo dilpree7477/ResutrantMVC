@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ResutrantMVC.Models.item>
+
+@{
+    ViewBag.Title = "viewProduct";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="font-size:15px;">
+
+            <h2>view Product</h2>
+
+            <p>
+                @Html.ActionLink("Add New Product ", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ingredient)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>Edit </th>
+                    <th>Delete </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingredient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) </td>
+            <td>
+                
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+            </table>
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+<h3 class="btn btn-danger"> @Html.ActionLink("Back to Dashboard", "DashBoard", "Login") </h3>
